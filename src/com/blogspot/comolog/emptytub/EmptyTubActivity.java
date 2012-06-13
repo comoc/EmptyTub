@@ -96,11 +96,6 @@ public class EmptyTubActivity extends Activity {
         	final String artist = cursor.getString( cursor.getColumnIndex( MediaStore.Audio.Media.ARTIST ) );
         	final String title = cursor.getString( cursor.getColumnIndex( MediaStore.Audio.Media.TITLE ) );
         	final String data = cursor.getString( cursor.getColumnIndex( MediaStore.Audio.Media.DATA ) );
-        	Log.d("TEST" , "====================================");
-        	Log.d("TEST" , album);
-        	Log.d("TEST" , artist);
-        	Log.d("TEST" , title);
-        	Log.d("TEST" , data);
         	mAudios.add(new AudioMediaMetadata(album, artist, title, data));
         	adapter.add(album + " : " + artist + " : " + title);
         }		
@@ -167,7 +162,10 @@ public class EmptyTubActivity extends Activity {
 				long arg3) {
 			// TODO Auto-generated method stub
 			Intent i = new Intent(getApplicationContext(), PlayerRecorderActivity.class);
-			i.putExtra(PlayerRecorderActivity.ARG_0, mAudios.get(arg2).mData);
+			i.putExtra(PlayerRecorderActivity.ARG_ALBUM, mAudios.get(arg2).mAlbum);
+			i.putExtra(PlayerRecorderActivity.ARG_ARTIST, mAudios.get(arg2).mArtist);
+			i.putExtra(PlayerRecorderActivity.ARG_TITLE, mAudios.get(arg2).mTitle);
+			i.putExtra(PlayerRecorderActivity.ARG_DATA, mAudios.get(arg2).mData);
 			startActivity(i);
 			
 			
