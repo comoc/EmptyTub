@@ -35,10 +35,12 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class EmptyTubActivity extends Activity {
     /** Called when the activity is first created. */
@@ -47,7 +49,14 @@ public class EmptyTubActivity extends Activity {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         mViewPlayList = (ListView)findViewById(R.id.listViewPlaylist);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice) {
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                	TextView view = (TextView)super.getView(position, convertView, parent);
+                    view.setTextSize(14.0f);
+                    return view;
+                }        		
+        };
         mViewPlayList.setAdapter(adapter);
         mViewPlayList.setOnItemClickListener(mViewPlayListClickedListener);
         initializeAudioFileList();

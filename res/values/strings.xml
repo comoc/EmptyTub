@@ -4,5 +4,6 @@
     <string name="hello">Hello World, EmptyTubActivity!</string>
     <string name="app_name">EmptyTub</string>
     <string name="data_file_path">/EmptyTabData.json</string>
+    <string name="app_name_play_rec">Play &amp; Rec</string>
 
 </resources>
