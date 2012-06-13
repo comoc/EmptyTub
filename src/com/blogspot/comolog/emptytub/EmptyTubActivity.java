@@ -166,6 +166,10 @@ public class EmptyTubActivity extends Activity {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			// TODO Auto-generated method stub
+			Intent i = new Intent(getApplicationContext(), PlayerRecorderActivity.class);
+			i.putExtra(PlayerRecorderActivity.ARG_0, mAudios.get(arg2).mData);
+			startActivity(i);
+			
 			
 		}
 	};
